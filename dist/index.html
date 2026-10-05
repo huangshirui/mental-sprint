@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f5f6f2"><meta name="description" content="每天两分钟，把口算练成直觉。整数、小数、分数训练，答对自动下一题，支持键盘和触屏。">
+  <title>口算冲刺 · Mental Sprint</title><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="layout.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="./" aria-label="口算冲刺首页"><span class="brand-icon">↗</span><span>口算冲刺<small>MENTAL SPRINT</small></span></a><span class="brand-tag">让计算，成为直觉。</span><button id="help-button" class="icon-button" aria-label="使用说明">?</button></header>
+<main>
+<section id="setup" class="view">
+  <div class="hero"><div><p class="eyebrow"><span class="live-dot"></span> A LITTLE PRACTICE. A LITTLE FASTER.</p><h1>脑袋热身，<br>来一场<span class="highlight">口算冲刺<span class="spark">✳</span></span>。</h1><p class="hero-copy">不用纸笔，不必提交。答对，立即下一题。<br>专注两分钟，看看你能走多远。</p></div><div class="hero-art" aria-hidden="true"><span class="art-label">YOUR DAILY BRAIN WARM-UP</span><span class="art-symbol s1">+</span><span class="art-symbol s2">÷</span><span class="art-symbol s3">×</span><span class="art-symbol s4">−</span><span class="art-center">2<span>MIN</span></span><span class="art-footer">小练习，大进步 ↗</span></div></div>
+  <div class="section-heading"><h2><span class="step">01</span> 今天，练什么？</h2><span>选择一个训练主题</span></div>
+  <div class="topics" role="group" aria-label="练习主题">
+    <button class="topic active" data-topic="integer" aria-pressed="true"><span class="topic-top"><span class="topic-icon">12</span><span class="selection">↗</span></span><h3>整数运算</h3><p>从基础开始，练出速度</p><span class="example">24 + 18 <span>= ?</span></span><span class="topic-no">01 / INTEGER</span></button>
+    <button class="topic" data-topic="decimal" aria-pressed="false"><span class="topic-top"><span class="topic-icon">0.5</span><span class="selection">↗</span></span><h3>小数运算</h3><p>小数点，也能算得轻快</p><span class="example">8 ÷ 5 <span>= ?</span></span><span class="topic-no">02 / DECIMAL</span></button>
+    <button class="topic" data-topic="fraction" aria-pressed="false"><span class="topic-top"><span class="topic-icon frac-icon">½</span><span class="selection">↗</span></span><h3>分数运算</h3><p>通分、约分，一次练熟</p><span class="example">½ + ¼ <span>= ?</span></span><span class="topic-no">03 / FRACTION</span></button>
+    <button class="topic" data-topic="mixed" aria-pressed="false"><span class="topic-top"><span class="topic-icon">✳</span><span class="selection">↗</span></span><h3>混合挑战</h3><p>三种题型，随机切换</p><span class="example">整数 · 小数 · 分数</span><span class="topic-no">04 / MIXED</span></button>
+  </div>
+  <div class="config-panel"><div class="config-head"><h2><span class="step">02</span> 按你的节奏来</h2><span id="best-setup" class="best-label">每次进步一点点</span></div><div class="config-grid">
+    <fieldset><legend>运算类型 <span>可多选</span></legend><div class="operation-group"><button data-op="+" class="chip active" aria-pressed="true">+ 加</button><button data-op="-" class="chip active" aria-pressed="true">− 减</button><button data-op="*" class="chip active" aria-pressed="true">× 乘</button><button data-op="/" class="chip active" aria-pressed="true">÷ 除</button></div></fieldset>
+    <fieldset><legend>练习难度</legend><div class="segmented" id="levels"><button data-level="easy">基础</button><button class="active" data-level="normal">标准</button><button data-level="hard">进阶</button></div></fieldset>
+    <fieldset><legend>挑战时长</legend><div class="segmented" id="durations"><button data-duration="60">1 分钟</button><button class="active" data-duration="120">2 分钟</button><button data-duration="300">5 分钟</button></div></fieldset>
+  </div><div class="start-row"><p id="range-note">整数从 2 起 · 加减 100 以内 · 乘除 12 以内</p><button id="start" class="primary">开始冲刺 <span>↗</span></button></div></div>
+  <div class="setup-footer"><span><span class="tiny-mark">⌨</span> 键盘 / 触屏，都能练</span><span><span class="tiny-mark">◷</span> 答对自动切题</span><span><span class="tiny-mark">◎</span> 无需登录，随时开始</span></div>
+</section>
+<section id="practice" class="view hidden" aria-label="口算练习">
+  <div class="practice-top"><div><span id="practice-topic" class="eyebrow"></span><h2>专注这一题。</h2></div><button id="finish" class="text-button">结束练习 <span>↗</span></button></div>
+  <div class="session-bar"><div class="time-block"><span class="metric-label">剩余时间</span><strong id="timer" role="timer">02:00</strong></div><div class="score-block"><span class="metric-label">已答对</span><strong id="score">0<span>题</span></strong></div><div class="pace-block"><span class="metric-label">保持节奏</span><span id="pace">慢慢来，先算准。</span></div><div class="progress-track"><div id="time-progress"></div></div></div>
+  <div class="practice-workspace"><div class="question-area"><p id="question-no" class="eyebrow">QUESTION 01</p><div id="expression" class="expression" aria-label="计算题"></div><label class="sr-only" for="answer">输入答案</label><div class="answer-box"><input id="answer" type="text" inputmode="none" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="answer-hint" placeholder="输入答案"><span class="input-arrow">↵</span></div><p id="answer-hint" class="answer-hint" aria-live="polite">答对自动下一题，无需按回车</p><div class="question-actions"><button id="skip" class="text-button">跳过这题 →</button><button id="toggle-keypad" class="text-button" aria-pressed="true">收起数字键盘</button></div></div>
+  <div id="keypad" class="keypad" aria-label="触屏数字键盘"><button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button><button data-key="back" class="key-secondary" aria-label="退格">⌫</button><button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button><button data-key="/" class="key-secondary" aria-label="分数线">/</button><button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button><button data-key="-" class="key-secondary" aria-label="负号">−</button><button data-key="clear" class="key-secondary">清空</button><button data-key="0">0</button><button data-key=".">.</button><button data-key="check" class="key-check" aria-label="检查答案">↵</button></div>
+  </div><p class="practice-footnote">先准确，再加速。每一道题，都在积累。</p>
+</section>
+<section id="results" class="view hidden" aria-label="练习结果">
+  <div class="result-intro"><span class="result-symbol">✳</span><p class="eyebrow">SPRINT COMPLETE</p><h1>这一轮，<span class="highlight">做得不错。</span></h1><p id="result-caption"></p></div><div class="result-card"><div class="result-main"><span class="metric-label">本轮答对</span><strong id="result-score">0</strong><span class="result-unit">题</span><span id="best-badge" class="record-badge hidden">↗ 新纪录</span></div><div class="result-metrics"><div><span class="metric-label">每分钟答对</span><strong id="result-rate"></strong></div><div><span class="metric-label">平均每题耗时</span><strong id="result-average"></strong></div><div><span class="metric-label">跳过题数</span><strong id="result-skips"></strong></div></div><div id="result-best" class="result-best"></div></div><div class="result-actions"><button id="again" class="primary">再冲刺一次 <span>↗</span></button><button id="change" class="secondary">换个主题</button></div><details id="review" class="review hidden"><summary>看看跳过的题 <span id="review-count"></span></summary><div id="review-list"></div></details><p class="result-note">纪录仅保存在当前浏览器。只和自己的昨天比。</p>
+</section>
+</main>
+<footer class="footer"><span>口算冲刺 <span class="footer-slash">/</span> MENTAL SPRINT</span><span>一点专注，一点进步。<span class="footer-star">✳</span></span></footer>
+<dialog id="help"><button id="close-help" class="close-dialog" aria-label="关闭说明">×</button><p class="eyebrow">HOW TO PLAY</p><h2>简单到，只管计算。</h2><ol><li>选主题、运算、难度和时长，开始练习。</li><li>直接输入答案，答对自动进入下一题。</li><li>倒计时结束，查看答对总数和速度。</li></ol><p>整数操作数从 2 起；各主题排除操作数为 0 或 1，以及相同数相减、相除。小数和分数按实际数值判断，<b>0.1</b>、<b>1/2</b> 仍会出现。</p><p>小数用 <b>1.6</b>；分数用 <b>1/2</b>。等值分数和精确小数都可以，不支持带分数写法。</p><p>输入过程中不会判错。按回车或 ↵ 可检查答案；也可以跳过，结束后查看解答。</p><p>电脑可用实体键盘，手机可用页面数字键盘。练习中切换标签页，计时仍会继续。</p><button id="understood" class="primary">知道了 <span>↗</span></button></dialog>
+<script src="engine.js"></script><script src="app.js"></script>
+</body></html>

@@ -1,0 +1,11 @@
+# Local tooling and hosting metadata
+.openai/
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+*.tar.gz
+
+# dist/ contains the deployable source and must remain tracked.

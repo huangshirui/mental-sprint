@@ -1,0 +1,50 @@
+/* Compact setup; practice gets the available viewport without clipping controls. */
+.topbar{height:64px;padding:0 28px}
+.brand{font-size:16px}.brand-icon{width:36px;height:36px;font-size:30px}.brand small{font-size:8px;margin-top:3px}
+main{padding-bottom:20px}
+.hero{display:block;padding:22px 0 18px}.hero-art{display:none}.hero .eyebrow{margin:0 0 10px;font-size:9px}
+.hero h1{font-size:34px;line-height:1.25;margin:0 0 10px;letter-spacing:-1px}.hero h1 br,.hero-copy br{display:none}.spark{font-size:26px;vertical-align:3px}.hero-copy{font-size:12px;line-height:1.6;margin:0}
+.section-heading{margin-bottom:12px}.section-heading h2,.config-head h2{font-size:15px}
+.topics{gap:12px}.topic{min-height:158px;padding:16px 18px;border-radius:16px}.topic-icon{height:32px;min-width:40px;font-size:18px;border-radius:9px}.topic h3{font-size:17px;margin:12px 0 5px}.topic p{font-size:10px}.example{margin-top:12px;font-size:17px}.topic:last-child .example{font-size:12px;padding-top:3px}.topic-no{display:none}
+.config-panel{padding:18px 22px 16px;margin-top:18px;border-radius:16px}.config-grid{margin-top:18px;gap:20px}.start-row{margin-top:16px;padding-top:14px}.start-row .primary{min-height:46px;padding:10px 22px}.setup-footer{margin-top:16px}.footer{padding:14px 0 18px;font-size:8px}
+.result-intro{margin-top:22px}.result-symbol{font-size:32px}.result-intro .eyebrow{margin:6px 0}.result-intro h1{font-size:30px;margin:13px 0 10px}.result-card{margin-top:20px;padding:22px 28px 0}.result-main strong{font-size:76px}.result-metrics{margin-top:20px;padding-bottom:20px}.result-actions{margin-top:20px}.result-note{margin:18px 0}.review{margin-top:20px}
+body.practicing .footer{display:none}
+body.practicing main{height:calc(100vh - 64px);height:calc(100dvh - 64px);min-height:608px;padding-top:12px;padding-bottom:max(12px,env(safe-area-inset-bottom));}
+#practice:not(.hidden){height:100%;display:grid;grid-template-rows:28px 70px minmax(0,1fr);gap:12px;}
+.practice-top{margin:0;min-width:0;gap:12px;}.practice-top h2{display:none}.practice-top .eyebrow{font-size:9px;margin:0;letter-spacing:1px}.practice-top .text-button{min-height:28px;white-space:nowrap}
+.session-bar{padding:12px 22px 15px;gap:36px;border-radius:12px}.metric-label{margin-bottom:5px}.time-block strong,.score-block strong{font-size:25px;line-height:1}.pace-block{font-size:12px}
+.practice-workspace{min-height:0;display:grid;grid-template-rows:minmax(234px,1fr) 216px;gap:12px;max-width:760px;width:100%;margin:0 auto;}
+.question-area{min-width:0;width:100%;max-width:600px;margin:0 auto;display:flex;flex-direction:column;justify-content:center;align-items:center;}
+.question-area>.eyebrow{margin:0 0 12px;font-size:9px}.expression{min-height:70px;font-size:clamp(30px,5vw,52px);gap:16px;max-width:100%;}
+.answer-box{width:100%;max-width:360px;margin:16px auto 0}.answer-box input{height:60px;font-size:28px}.input-arrow{top:20px}.answer-hint{margin-top:10px;font-size:10px;line-height:16px;min-height:16px;max-width:100%;}.question-actions{margin-top:5px;gap:25px}.question-actions .text-button{min-height:32px;font-size:11px}
+.keypad{height:216px;width:100%;max-width:360px;margin:0 auto;grid-template-rows:repeat(4,1fr);gap:8px;}.keypad button{height:100%;min-height:44px;font-size:22px;border-radius:10px;}.practice-footnote{display:none}
+#practice.keypad-collapsed .practice-workspace{grid-template-rows:minmax(0,1fr);grid-template-columns:1fr;max-width:100%;}
+/* Landscape: the equation and keypad share the same row. */
+@media(min-width:960px),(orientation:landscape) and (min-width:560px){
+  body.practicing main{min-height:336px;}
+  .practice-workspace{grid-template-columns:minmax(0,1fr) minmax(240px,320px);grid-template-rows:minmax(224px,1fr);max-width:1000px;gap:40px;align-items:center;}
+  .keypad{height:264px;max-width:320px;}.keypad button{min-height:44px;}
+  .question-area{max-width:600px;}.expression{font-size:clamp(30px,4.5vw,60px);min-height:90px;}.answer-box{margin-top:20px;max-width:390px;}.answer-box input{height:68px;font-size:30px;}.input-arrow{top:24px;}
+}
+@media(max-width:900px){
+  .config-grid{grid-template-columns:1fr 1fr 1fr;gap:14px}.config-grid fieldset:first-child{grid-column:auto}.chip{min-height:40px;font-size:11px}.operation-group{gap:4px}.segmented button{font-size:11px}.topic{padding:15px 14px;}.topic p{font-size:9px}.topic h3{font-size:16px}
+}
+@media(max-width:600px){
+  .topbar{height:56px;padding:0 18px}.brand{font-size:15px}.brand-icon{height:31px;width:31px;font-size:27px}.brand small{font-size:7px}.icon-button{width:27px;height:27px;}
+  main{margin:0 18px;padding-bottom:14px;}.hero{padding:17px 0 16px;}.hero .eyebrow{display:none}.hero h1{font-size:27px;line-height:1.35;margin:0 0 7px;letter-spacing:-.8px}.spark{font-size:22px;margin-left:6px;vertical-align:2px}.hero-copy{font-size:10px;line-height:1.7;}
+  .section-heading{margin-bottom:10px}.section-heading h2,.config-head h2{font-size:13px}.section-heading>span{font-size:9px;}
+  .topics{gap:10px}.topic{min-height:88px;padding:12px 13px;display:grid;grid-template-columns:35px 1fr;gap:7px 9px;}.topic-top{height:28px}.topic-icon{height:28px;min-width:35px;font-size:16px;}.selection{display:none;}.topic h3{margin:0;font-size:15px;align-self:center;}.topic p{display:none}.example{font-size:14px;margin-top:0;grid-column:1/-1;}.topic:last-child .example{font-size:11px;padding-top:0;}
+  .config-panel{padding:15px 14px;margin-top:14px;}.config-grid{grid-template-columns:1fr 1fr;gap:14px 12px;margin-top:14px;}.config-grid fieldset:first-child{grid-column:1/-1;}legend{font-size:11px;margin-bottom:8px}.chip{min-height:40px;font-size:12px}.segmented button{padding:9px 1px;}.start-row{margin-top:13px;padding-top:11px}.start-row p{font-size:9px;}.start-row .primary{margin-top:11px;min-height:46px;}.setup-footer,.footer{display:none;}
+  body.practicing main{height:calc(100vh - 56px);height:calc(100dvh - 56px);min-height:584px;padding-top:8px;padding-bottom:max(12px,env(safe-area-inset-bottom));}
+  #practice:not(.hidden){grid-template-rows:24px 64px minmax(0,1fr);gap:10px;}.practice-top .eyebrow{font-size:8px;}.session-bar{padding:10px 18px 14px;gap:28px;}.time-block strong,.score-block strong{font-size:25px;}.question-area>.eyebrow{margin-bottom:8px}.expression{font-size:clamp(26px,8vw,42px);min-height:62px;gap:10px;letter-spacing:0;}.answer-box{margin-top:13px;max-width:360px;}.answer-box input{height:58px;font-size:27px;}.input-arrow{top:19px;}.answer-hint{font-size:9px;margin-top:8px;}.question-actions{gap:22px;margin-top:3px;}.practice-workspace{grid-template-rows:minmax(214px,1fr) 216px;gap:10px;}
+  .result-intro{margin-top:20px;}.result-intro h1{font-size:26px;}.result-card{padding:20px 15px 0;}.result-main strong{font-size:70px;}.result-metrics strong{font-size:22px;}
+}
+/* Short landscape screens retain usable keys instead of squeezing the targets. */
+@media(orientation:landscape) and (min-width:560px) and (max-height:650px){
+  body.practicing .topbar{height:44px;}body.practicing .brand small,body.practicing .brand-tag{display:none}body.practicing .brand-icon{height:28px;width:28px;font-size:24px;}body.practicing main{height:calc(100vh - 44px);height:calc(100dvh - 44px);min-height:336px;padding-top:8px;padding-bottom:max(8px,env(safe-area-inset-bottom));}
+  #practice:not(.hidden){grid-template-rows:24px 56px minmax(224px,1fr);gap:8px;}.session-bar{padding:8px 18px 11px;}.time-block strong,.score-block strong{font-size:23px;}.metric-label{font-size:9px;margin-bottom:3px;}.pace-block{display:none;}
+  .practice-workspace{grid-template-columns:minmax(0,1fr) minmax(220px,30%);grid-template-rows:minmax(224px,1fr);gap:24px;}.keypad{height:224px;gap:7px;}.keypad button{font-size:20px;}.question-area>.eyebrow{margin-bottom:6px;font-size:8px;}.expression{font-size:clamp(25px,4.5vw,42px);min-height:68px;gap:10px;}.answer-box{max-width:320px;margin-top:12px;}.answer-box input{height:54px;font-size:26px;}.input-arrow{top:17px;}.answer-hint{margin-top:8px;font-size:9px;}.question-actions{margin-top:3px;gap:18px;}
+}
+@media(min-width:901px) and (max-height:700px){
+  .hero{padding:16px 0 14px;}.hero h1{font-size:29px;}.topic{min-height:140px;padding:13px 16px;}.topic h3{margin-top:10px;}.config-panel{margin-top:14px;padding-top:15px;}.config-grid{margin-top:14px;}.setup-footer{margin-top:12px;}
+}
